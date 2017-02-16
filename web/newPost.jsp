@@ -31,11 +31,13 @@
                 if (temp != null)
                 {
                     temp.style.display = "none";
+                    temp.disabled = true;
                 }
             }
             var select = document.getElementById(selected);
 
             select.style.display = "block";
+            select.disabled = false;
         }
     </script>
 
