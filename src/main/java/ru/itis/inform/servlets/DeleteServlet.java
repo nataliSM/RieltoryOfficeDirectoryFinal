@@ -1,6 +1,9 @@
 package ru.itis.inform.servlets;
 
-import ru.itis.inform.factories.ServiceFactory;
+import org.springframework.context.ApplicationContext;
+import org.springframework.context.annotation.AnnotationConfigApplicationContext;
+import ru.itis.inform.config.SpringConfig;
+
 import ru.itis.inform.models.rieltoryModel.Offer;
 import ru.itis.inform.models.rieltoryModel.Street;
 import ru.itis.inform.services.OfferseGeneratorService;
@@ -22,7 +25,8 @@ public class DeleteServlet extends HttpServlet {
     }
 
     protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-        OfferseGeneratorService offerseGeneratorService = ServiceFactory.getInstance().getOfferseGeneratorService();
+        ApplicationContext context = new AnnotationConfigApplicationContext(SpringConfig.class);
+        OfferseGeneratorService offerseGeneratorService = context.getBean(OfferseGeneratorService.class);
         request.setCharacterEncoding("utf-8");
 
         String id = request.getParameter("id");

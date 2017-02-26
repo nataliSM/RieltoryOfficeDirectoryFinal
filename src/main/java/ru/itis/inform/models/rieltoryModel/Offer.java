@@ -18,6 +18,10 @@ public class Offer {
         this.cost = cost;
     }
 
+    public Offer(Integer id) {
+        this.id = id;
+    }
+
     public Offer() {
 
     }

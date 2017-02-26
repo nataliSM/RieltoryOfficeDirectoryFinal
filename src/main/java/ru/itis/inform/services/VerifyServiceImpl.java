@@ -1,8 +1,8 @@
 package ru.itis.inform.services;
 
+import org.springframework.stereotype.Component;
 import ru.itis.inform.factories.DAOFactory;
-import ru.itis.inform.DAOs.UserDAO;
-import ru.itis.inform.factories.ServiceFactory;
+import ru.itis.inform.dao.UserDAO;
 import ru.itis.inform.models.User;
 
 import javax.servlet.http.Cookie;
@@ -10,6 +10,7 @@ import javax.servlet.http.Cookie;
 /**
  * Created by Natalia on 21.10.16.
  */
+@Component
 public class VerifyServiceImpl implements VerifyService {
 
     @Override

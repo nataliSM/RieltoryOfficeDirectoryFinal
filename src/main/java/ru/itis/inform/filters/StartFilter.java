@@ -1,7 +1,7 @@
 package ru.itis.inform.filters;
 
 
-import ru.itis.inform.factories.ServiceFactory;
+
 import ru.itis.inform.services.VerifyService;
 
 import javax.servlet.*;

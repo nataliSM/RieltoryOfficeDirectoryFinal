@@ -1,6 +1,6 @@
 package ru.itis.inform.filters;
 
-import ru.itis.inform.factories.ServiceFactory;
+
 import ru.itis.inform.services.VerifyService;
 
 
@@ -21,16 +21,16 @@ public class LoginFilter implements Filter {
 
     @Override
     public void doFilter(ServletRequest servletRequest, ServletResponse servletResponse, FilterChain filterChain) throws IOException, ServletException {
-        HttpServletRequest request = (HttpServletRequest) servletRequest;
-        HttpServletResponse response = (HttpServletResponse) servletResponse;
-        Cookie[] cookies = request.getCookies();
-       VerifyService verifyService = ServiceFactory.getInstance().getVerifyService();
-        boolean logined = verifyService.isClientLogined(cookies);
-        if (logined) {
-            response.sendRedirect("/home");
-            return;
-        }
-        filterChain.doFilter(request, response);
+//        HttpServletRequest request = (HttpServletRequest) servletRequest;
+//        HttpServletResponse response = (HttpServletResponse) servletResponse;
+//        Cookie[] cookies = request.getCookies();
+//       VerifyService verifyService = ServiceFactory.getInstance().getVerifyService();
+//        boolean logined = verifyService.isClientLogined(cookies);
+//        if (logined) {
+//            response.sendRedirect("/home");
+//            return;
+//        }
+//        filterChain.doFilter(request, response);
 
     }
 

@@ -1,22 +1,44 @@
 package ru.itis.inform.services;
 
-import ru.itis.inform.DAOs.*;
-import ru.itis.inform.factories.RieltoryFactory;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Component;
+import ru.itis.inform.dao.*;
+import ru.itis.inform.dao.OffersDAO;
 import ru.itis.inform.models.rieltoryModel.*;
 
 import java.sql.Connection;
 import java.sql.SQLException;
-import java.util.ArrayList;
 import java.util.List;
-import java.util.logging.Logger;
 
 /**
  * Created by Natalia on 05.11.16.
  */
+@Component
 public class OfferceGeneratorServicesImpl implements OfferseGeneratorService{
-private OffersDAO offersDAO;
+    private TraderDAO traderDAO;
+    private AddressDAO addressDAO;
+    private FeaturesDAO featuresDAO;
+    private OffersDAO offersDAO;
+    private CityDAO cityDAO;
+    private StreetDAO streetDAO;
 
     public OfferceGeneratorServicesImpl() {
+    }
+
+    @Autowired
+    public OfferceGeneratorServicesImpl(TraderDAO traderDAO,
+                                        AddressDAO addressDAO,
+                                        FeaturesDAO featuresDAO,
+                                        OffersDAO offersDAO,
+                                        CityDAO cityDAO,
+                                        StreetDAO streetDAO)
+    {
+        this.traderDAO = traderDAO;
+        this.addressDAO = addressDAO;
+        this.featuresDAO = featuresDAO;
+        this.offersDAO = offersDAO;
+        this.cityDAO = cityDAO;
+        this.streetDAO = streetDAO;
     }
 
     public OfferceGeneratorServicesImpl(OffersDAO offersDAO) {
@@ -25,16 +47,6 @@ private OffersDAO offersDAO;
 
     public List<Offer> generateOfferces(int numberOfRooms, String condition, String repair, String cityName, Integer startCost, Integer endCost)
     {
-        OffersDAO offersDAO;
-
-        if (this.offersDAO != null){
-            offersDAO = this.offersDAO;
-        }
-        else{
-            Connection connection = RieltoryFactory.getInstance().getConnection();
-             offersDAO = RieltoryFactory.getInstance().getOffersDAO(connection);
-        }
-
         return offersDAO.getAllOffersWithParams(numberOfRooms, condition, repair, cityName,startCost,endCost);
     }
 
@@ -42,35 +54,16 @@ private OffersDAO offersDAO;
 
     @Override
     public List<City> getAllCities() {
-        Connection connection = RieltoryFactory.getInstance().getConnection();
-        CityDAO dao = RieltoryFactory.getInstance().getCityDAO(connection);
-
-        return dao.getAll();
+        return cityDAO.findAll();
     }
 
     @Override
     public List<Street> getAllStreets() {
-        Connection connection = RieltoryFactory.getInstance().getConnection();
-        StreetDAO dao = RieltoryFactory.getInstance().getStreetDAO(connection);
-
-        return dao.getAll();
+        return streetDAO.findAll();
     }
 
     @Override
     public void save(Offer offer) {
-        Connection connection = RieltoryFactory.getInstance().getConnection();
-        try {
-            connection.setAutoCommit(false);
-        } catch (SQLException e) {
-            e.printStackTrace();
-        }
-        TraderDAO traderDAO = RieltoryFactory.getInstance().getTraderDAO(connection);
-        AddressDAO addressDAO = RieltoryFactory.getInstance().getAddressDAO(connection);
-        FeaturesDAO featuresDAO = RieltoryFactory.getInstance().getFeaturesDAO(connection);
-        OffersDAO offersDAO = RieltoryFactory.getInstance().getOffersDAO(connection);
-        CityDAO cityDAO = RieltoryFactory.getInstance().getCityDAO(connection);
-        StreetDAO streetDAO = RieltoryFactory.getInstance().getStreetDAO(connection);
-
         int id = traderDAO.findTrader(offer.getTrader());
         if (id == -1){
             id = traderDAO.save(offer.getTrader());
@@ -93,42 +86,19 @@ private OffersDAO offersDAO;
 
         offer.setId(offersDAO.save(offer));
 
-        try {
-            connection.commit();
-        } catch (SQLException e) {
-            e.printStackTrace();
-        }
     }
 
     @Override
     public List<Offer> getAll() {
-        Connection connection = RieltoryFactory.getInstance().getConnection();
-        offersDAO = RieltoryFactory.getInstance().getOffersDAO(connection);
-        return offersDAO.getAll();
+        return offersDAO.findAll();
     }
 
     public void delete(Integer id){
-        Connection connection = RieltoryFactory.getInstance().getConnection();
-        offersDAO = RieltoryFactory.getInstance().getOffersDAO(connection);
         offersDAO.delete(id);
     }
 
     public void update(Integer id, Integer cost){
-        Connection connection = RieltoryFactory.getInstance().getConnection();
-        try {
-            connection.setAutoCommit(false);
-        } catch (SQLException e) {
-            e.printStackTrace();
-        }
-
-        OffersDAO offersDAO = RieltoryFactory.getInstance().getOffersDAO(connection);
         offersDAO.update(id,cost);
-
-        try {
-            connection.commit();
-        } catch (SQLException e) {
-            e.printStackTrace();
-        }
     }
 
 }

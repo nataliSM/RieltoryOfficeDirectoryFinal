@@ -1,8 +1,8 @@
 package ru.itis.inform.factories;
 
-import ru.itis.inform.DAOs.Database;
-import ru.itis.inform.DAOs.UserDAO;
-import ru.itis.inform.DAOs.UserDaoImpl;
+import ru.itis.inform.dao.Database;
+import ru.itis.inform.dao.UserDAO;
+import ru.itis.inform.dao.UserDaoImpl;
 import ru.itis.inform.services.DataBaseConnectionServices;
 import ru.itis.inform.services.DataBaseConnectionServicesImpl;
 

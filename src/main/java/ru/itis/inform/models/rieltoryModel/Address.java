@@ -4,6 +4,10 @@ package ru.itis.inform.models.rieltoryModel;
  * Created by Natalia on 05.11.16.
  */
 public class Address {
+    public Address(int address_id, int flat, int house) {
+
+    }
+
     public Integer getId() {
         return id;
     }

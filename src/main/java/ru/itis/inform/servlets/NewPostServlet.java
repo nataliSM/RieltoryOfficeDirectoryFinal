@@ -1,6 +1,9 @@
 package ru.itis.inform.servlets;
 
-import ru.itis.inform.factories.ServiceFactory;
+
+import org.springframework.context.ApplicationContext;
+import org.springframework.context.annotation.AnnotationConfigApplicationContext;
+import ru.itis.inform.config.SpringConfig;
 import ru.itis.inform.models.rieltoryModel.*;
 import ru.itis.inform.services.OfferseGeneratorService;
 
@@ -11,6 +14,7 @@ import javax.servlet.http.HttpServletResponse;
 import java.io.IOException;
 import java.io.InputStream;
 import java.util.List;
+import java.util.Set;
 
 /**
  * Created by Natalia on 18.12.16.
@@ -18,6 +22,7 @@ import java.util.List;
 public class NewPostServlet extends HttpServlet {
     protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
         request.setCharacterEncoding("utf-8");
+        Set set = request.getParameterMap().entrySet();
         String countOfRooms = request.getParameter("numberOfRooms");
         String repair = request.getParameter("repair");
         String condition = request.getParameter("condition");
@@ -64,7 +69,9 @@ public class NewPostServlet extends HttpServlet {
         offer.setAddress(address);
         offer.setFeature(feature);
         offer.setTrader(trader);
-        OfferseGeneratorService offerseGeneratorService = ServiceFactory.getInstance().getOfferseGeneratorService();
+
+        ApplicationContext context = new AnnotationConfigApplicationContext(SpringConfig.class);
+        OfferseGeneratorService offerseGeneratorService = context.getBean(OfferseGeneratorService.class);
         offerseGeneratorService.save(offer);
         response.sendRedirect("/home");
 
@@ -74,8 +81,8 @@ public class NewPostServlet extends HttpServlet {
     }
 
     protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-
-        OfferseGeneratorService offerseGeneratorService = ServiceFactory.getInstance().getOfferseGeneratorService();
+        ApplicationContext context = new AnnotationConfigApplicationContext(SpringConfig.class);
+        OfferseGeneratorService offerseGeneratorService = context.getBean(OfferseGeneratorService.class);
         List<City> cityList = offerseGeneratorService.getAllCities();
         List<Street> streetList = offerseGeneratorService.getAllStreets();
         request.setAttribute("cityList", cityList);

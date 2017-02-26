@@ -8,13 +8,21 @@ public class Street {
     private City city;
     private String name;
 
-    public Street(Integer streetId, String streetName, City city) {
-        this.id =streetId;
+    public Street(Integer id, String streetName, City city) {
+        this.id =id;
         this.city = city;
         this.name = streetName;
     }
 
     public Street() {
+
+    }
+
+    public Street(int id) {
+        this.id = id;
+    }
+
+    public Street(int street_id, City city, String street_name) {
 
     }
 

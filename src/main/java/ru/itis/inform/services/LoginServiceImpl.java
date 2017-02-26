@@ -1,9 +1,9 @@
 package ru.itis.inform.services;
 
 import org.apache.commons.codec.digest.DigestUtils;
+import org.springframework.stereotype.Component;
 import ru.itis.inform.factories.DAOFactory;
-import ru.itis.inform.DAOs.UserDAO;
-import ru.itis.inform.DAOs.UserDaoImpl;
+import ru.itis.inform.dao.UserDAO;
 import ru.itis.inform.models.User;
 
 import javax.servlet.http.Cookie;
@@ -14,6 +14,7 @@ import java.util.Random;
 /**
  * Created by Natalia on 09.10.16.
  */
+@Component
 public class LoginServiceImpl implements LoginService
 {
     private String currentToken;

@@ -1,6 +1,9 @@
 package ru.itis.inform.servlets;
 
-import ru.itis.inform.factories.ServiceFactory;
+
+import org.springframework.context.ApplicationContext;
+import org.springframework.context.annotation.AnnotationConfigApplicationContext;
+import ru.itis.inform.config.SpringConfig;
 import ru.itis.inform.services.RegistrationService;
 
 import javax.servlet.ServletException;
@@ -16,7 +19,8 @@ public class RegistrationServlet extends HttpServlet {
     protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
         String username = request.getParameter("username");
         String password = request.getParameter("password");
-        RegistrationService registrationService = ServiceFactory.getInstance().getRegistrationService();
+        ApplicationContext context = new AnnotationConfigApplicationContext(SpringConfig.class);
+        RegistrationService registrationService = context.getBean(RegistrationService.class);
         registrationService.registrateUser(username,password);
         request.getRequestDispatcher("/login.jsp").forward(request, response);
 

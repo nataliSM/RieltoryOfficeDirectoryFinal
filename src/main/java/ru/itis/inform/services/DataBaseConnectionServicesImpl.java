@@ -2,7 +2,7 @@ package ru.itis.inform.services; /**
  * Created by Natalia on 09.10.16.
  */
 
-import ru.itis.inform.DAOs.Database;
+import ru.itis.inform.dao.Database;
 
 import java.sql.Connection;
 import java.sql.*;

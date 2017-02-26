@@ -1,6 +1,9 @@
 package ru.itis.inform.servlets;
 
-import ru.itis.inform.factories.ServiceFactory;
+import org.springframework.context.ApplicationContext;
+import org.springframework.context.annotation.AnnotationConfigApplicationContext;
+import ru.itis.inform.config.SpringConfig;
+
 import ru.itis.inform.models.rieltoryModel.City;
 import ru.itis.inform.models.rieltoryModel.Offer;
 import ru.itis.inform.services.OfferseGeneratorService;
@@ -19,7 +22,8 @@ import java.util.List;
 public class HomeServlet extends HttpServlet {
     protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
         request.setCharacterEncoding("utf-8");
-        OfferseGeneratorService offerseGeneratorService = ServiceFactory.getInstance().getOfferseGeneratorService();
+        ApplicationContext context = new AnnotationConfigApplicationContext(SpringConfig.class);
+        OfferseGeneratorService offerseGeneratorService = context.getBean(OfferseGeneratorService.class);
         String numberOfRooms = request.getParameter("numberOfRooms");
         String condition = request.getParameter("condition");
         String repair = request.getParameter("repair");
@@ -45,8 +49,8 @@ public class HomeServlet extends HttpServlet {
     }
 
     protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-
-        OfferseGeneratorService offerseGeneratorService = ServiceFactory.getInstance().getOfferseGeneratorService();
+        ApplicationContext context = new AnnotationConfigApplicationContext(SpringConfig.class);
+        OfferseGeneratorService offerseGeneratorService = context.getBean(OfferseGeneratorService.class);
         List<City> cityList = offerseGeneratorService.getAllCities();
         request.setAttribute("cityList", cityList);
         request.getRequestDispatcher("/home.jsp").forward(request, response);

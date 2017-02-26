@@ -1,6 +1,9 @@
 package ru.itis.inform.servlets;
 
-import ru.itis.inform.factories.ServiceFactory;
+import org.springframework.context.ApplicationContext;
+import org.springframework.context.annotation.AnnotationConfigApplicationContext;
+import ru.itis.inform.config.SpringConfig;
+
 import ru.itis.inform.services.VerifyService;
 import ru.itis.inform.models.User;
 import ru.itis.inform.services.LoginService;
@@ -22,7 +25,9 @@ public class LoginServlet extends HttpServlet {
         String username = request.getParameter("username");
         String password = request.getParameter("password");
         User user = new User(username,password);
-        LoginService loginService = ServiceFactory.getInstance().getLoginService();
+
+        ApplicationContext context = new AnnotationConfigApplicationContext(SpringConfig.class);
+        LoginService loginService = context.getBean(LoginService.class);
 
         if (loginService.verifyUser(username, password)) {
 

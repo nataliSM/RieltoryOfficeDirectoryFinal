@@ -1,0 +1,30 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+        "http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+<hibernate-mapping>
+    <class name="ru.itis.inform.models.rieltoryModel.Offer" table="offers" catalog="public">
+        <id name="id" type="java.lang.Integer">
+            <column name="id_flat"/>
+            <generator class="identity">
+
+            </generator>
+        </id>
+
+        <property name="cost"/>
+
+
+        <!--<one-to-one name="address" class="ru.itis.inform.models.rieltoryModel.Address" fetch="select" cascade="save-update" lazy="false">-->
+
+        <!--</one-to-one>-->
+
+        <many-to-one name="address" column="address_id" class="ru.itis.inform.models.rieltoryModel.Address" cascade="all"></many-to-one>
+
+        <many-to-one name="feature" column="features_id" class="ru.itis.inform.models.rieltoryModel.Feature" cascade="all">
+        </many-to-one>
+
+        <many-to-one name="trader" column="trader_id" class="ru.itis.inform.models.rieltoryModel.Trader" cascade="all">
+
+        </many-to-one>
+
+    </class>
+</hibernate-mapping>
