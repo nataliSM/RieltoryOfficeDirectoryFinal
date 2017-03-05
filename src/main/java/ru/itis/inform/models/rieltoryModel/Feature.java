@@ -1,12 +1,22 @@
 package ru.itis.inform.models.rieltoryModel;
+import javax.persistence.*;
+import javax.persistence.Entity;
 
 /**
  * Created by Natalia on 05.11.16.
  */
+@Entity
+@Table (name = "features")
 public class Feature {
+    @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    @Column (name = "features_id")
     private Integer id;
+    @Column (name = "count_of_room")
     private Integer countOfRoom;
+    @Column
     private String condition;
+    @Column
     private String repair;
 
     public Feature(Integer id, Integer countOfRoom, String condition, String repair) {

@@ -5,6 +5,7 @@ import org.springframework.jdbc.core.JdbcTemplate;
 import org.springframework.jdbc.support.GeneratedKeyHolder;
 import org.springframework.jdbc.support.KeyHolder;
 import org.springframework.stereotype.Component;
+import org.springframework.stereotype.Repository;
 import ru.itis.inform.dao.AddressDAO;
 import ru.itis.inform.models.rieltoryModel.Address;
 
@@ -22,6 +23,7 @@ import java.util.List;
 /**
  * Created by Natalia on 05.11.16.
  */
+
 @Component("jdbc.addres.dao")
 public class AddressDAOImpl implements AddressDAO {
 

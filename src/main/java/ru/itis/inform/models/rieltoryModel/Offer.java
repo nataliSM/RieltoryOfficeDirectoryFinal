@@ -1,13 +1,27 @@
 package ru.itis.inform.models.rieltoryModel;
 
+import javax.persistence.*;
+
 /**
  * Created by Natalia on 05.11.16.
  */
+@Entity
+@Table (name = "offers")
 public class Offer {
+    @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    @Column (name = "id_flat")
     private Integer id;
+    @ManyToOne
+    @JoinColumn (name = "address_id")
     private Address address;
+    @ManyToOne
+    @JoinColumn (name = "trader_id")
     private Trader trader;
+    @ManyToOne
+    @JoinColumn (name = "features_id")
     private Feature feature;
+    @Column
     private Integer cost;
 
     public Offer(Integer id, Address address, Trader trader, Feature feature, Integer cost) {

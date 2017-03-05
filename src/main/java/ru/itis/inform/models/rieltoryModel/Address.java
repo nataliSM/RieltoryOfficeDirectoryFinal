@@ -1,9 +1,37 @@
 package ru.itis.inform.models.rieltoryModel;
 
+import javax.persistence.*;
+
 /**
  * Created by Natalia on 05.11.16.
  */
+
+@Entity
+@Table(name = "address")
 public class Address {
+
+    @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    @Column (name = "id_address" )
+    private Integer id;
+
+    @Column
+    private Integer house;
+    @Column
+    private Integer flat;
+
+    @ManyToOne(targetEntity = City.class)
+    @JoinColumn (name = "city_id")
+    private  City city;
+
+
+
+    @ManyToOne (targetEntity = Street.class)
+    @JoinColumn (name = "street_id")
+    private  Street street;
+
+
+
     public Address(int address_id, int flat, int house) {
 
     }
@@ -16,11 +44,6 @@ public class Address {
         this.id = id;
     }
 
-    private Integer id;
-    private City city;
-    private Street street;
-    private Integer house;
-    private Integer flat;
 
     public Address(Integer id, City city, Street street, Integer house, Integer flat) {
         this.city = city;

@@ -1,11 +1,23 @@
 package ru.itis.inform.models.rieltoryModel;
 
+import javax.persistence.*;
+
 /**
  * Created by Natalia on 05.11.16.
  */
+@Entity
+@Table (name= "street")
 public class Street {
+    @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    @Column (name = "street_id" )
     private Integer id;
+
+    @ManyToOne(targetEntity = City.class)
+    @JoinColumn (name = "city_id")
     private City city;
+
+    @Column (name = "street_name")
     private String name;
 
     public Street(Integer id, String streetName, City city) {
