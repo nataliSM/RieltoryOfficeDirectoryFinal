@@ -13,7 +13,8 @@ public class Street {
     @Column (name = "street_id" )
     private Integer id;
 
-    @ManyToOne(targetEntity = City.class)
+
+    @ManyToOne(targetEntity = City.class,fetch = FetchType.EAGER)
     @JoinColumn (name = "city_id")
     private City city;
 

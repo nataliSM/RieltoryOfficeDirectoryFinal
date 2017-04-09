@@ -15,13 +15,17 @@ import org.springframework.orm.jpa.vendor.HibernateJpaVendorAdapter;
 import org.springframework.transaction.PlatformTransactionManager;
 import org.springframework.transaction.annotation.EnableTransactionManagement;
 import org.springframework.orm.hibernate5.LocalSessionFactoryBuilder;
+import org.springframework.web.servlet.ViewResolver;
+import org.springframework.web.servlet.mvc.Controller;
+import org.springframework.web.servlet.view.InternalResourceViewResolver;
+import ru.itis.inform.controllers.UpdateController;
 
 
 import javax.sql.DataSource;
 
 @Configuration
 @ComponentScan("ru.itis.inform")
-@PropertySource("ru.itis.inform/db.properties")
+@PropertySource("classpath:/ru.itis.inform/db.properties")
 @EnableJpaRepositories("ru.itis.inform.dao")
 @EnableTransactionManagement
 public class SpringConfig {
@@ -74,5 +78,15 @@ public class SpringConfig {
         dataSource.setPassword(environment.getProperty("RieltoryDatabase.password"));
 
         return dataSource;
+    }
+
+    @Bean
+    public ViewResolver viewResolver() {
+        return new InternalResourceViewResolver("/views/", ".jsp");
+    }
+
+    @Bean(name = "/show")
+    public Controller getUpdateController() {
+        return new UpdateController();
     }
 }

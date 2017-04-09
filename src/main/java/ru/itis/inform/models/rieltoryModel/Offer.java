@@ -12,13 +12,14 @@ public class Offer {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column (name = "id_flat")
     private Integer id;
-    @ManyToOne
+    @ManyToOne(fetch = FetchType.EAGER, cascade = CascadeType.DETACH)
     @JoinColumn (name = "address_id")
     private Address address;
-    @ManyToOne
+
+    @ManyToOne(fetch = FetchType.EAGER)
     @JoinColumn (name = "trader_id")
     private Trader trader;
-    @ManyToOne
+    @ManyToOne(fetch = FetchType.EAGER)
     @JoinColumn (name = "features_id")
     private Feature feature;
     @Column

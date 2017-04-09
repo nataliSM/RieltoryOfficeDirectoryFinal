@@ -1,5 +1,7 @@
 package ru.itis.inform.models.rieltoryModel;
 
+import org.springframework.transaction.annotation.Transactional;
+
 import javax.persistence.*;
 
 /**
@@ -20,13 +22,14 @@ public class Address {
     @Column
     private Integer flat;
 
-    @ManyToOne(targetEntity = City.class)
+
+    @ManyToOne(targetEntity = City.class, fetch = FetchType.EAGER, cascade = CascadeType.DETACH)
     @JoinColumn (name = "city_id")
     private  City city;
 
 
 
-    @ManyToOne (targetEntity = Street.class)
+    @ManyToOne (targetEntity = Street.class, fetch = FetchType.EAGER, cascade = CascadeType.DETACH)
     @JoinColumn (name = "street_id")
     private  Street street;
 

@@ -17,4 +17,5 @@ public interface OfferseGeneratorService {
     public  List<Offer> getAll ();
     public void delete(Integer id);
     public void update(Integer id, Integer cost);
+    public Offer findOffer(Integer id);
 }

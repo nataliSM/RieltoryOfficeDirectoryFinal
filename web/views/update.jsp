@@ -8,10 +8,10 @@
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <html>
 <head>
-    <link rel="stylesheet" href="style/bootstrap.min.css">
-    <link rel="stylesheet" href="style/homeStyle.css">
-    <script src="js/jquery-3.1.1.min.js"></script>
-    <script src="js/bootstrap.min.js"></script>
+    <link rel="stylesheet" href="../../style/bootstrap.min.css">
+    <link rel="stylesheet" href="../../style/homeStyle.css">
+    <script src="../../js/jquery-3.1.1.min.js"></script>
+    <script src="../../js/bootstrap.min.js"></script>
     <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 
     <meta http-equiv="content-type" content="text/html; charset=cp1251">
@@ -41,7 +41,7 @@
             </thead>
 
             <tbody>
-            <c:forEach items="${requestScope.offerList}" var="offer">
+            <c:forEach items="${requestScope.offers}" var="offer">
             <tr ><td><c:out value="${offer.id}"></c:out></td>
                 <td><c:out value="${offer.address.city.name}"></c:out></td>
                 <td><c:out value="${offer.address.street.name}"></c:out></td>

@@ -2,7 +2,7 @@
 <!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
         "http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
 <hibernate-mapping>
-    <class name="ru.itis.inform.models.rieltoryModel.Offer" table="offers" catalog="public">
+    <class name="ru.itis.inform.models.rieltoryModel.Offer" table="offers" catalog="public" lazy="false">
         <id name="id" type="java.lang.Integer">
             <column name="id_flat"/>
             <generator class="identity">

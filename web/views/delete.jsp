@@ -10,9 +10,9 @@
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <html>
 <head>
-    <link rel="stylesheet" href="style/bootstrap.min.css">
+    <link rel="stylesheet" href="../../style/bootstrap.min.css">
     <%--<link rel="stylesheet" href="style/homeStyle.css">--%>
-    <link rel="stylesheet" href="style/table.css">
+    <link rel="stylesheet" href="../../style/table.css">
 
 
     <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
@@ -125,9 +125,9 @@
 
 
 </div>
-    <script src="js/jquery-3.1.1.min.js"></script>
-    <script src="js/bootstrap.min.js"></script>
-    <script src="js/table.js"></script>
+    <script src="../../js/jquery-3.1.1.min.js"></script>
+    <script src="../../js/bootstrap.min.js"></script>
+    <script src="../../js/table.js"></script>
 
 </body>
 
