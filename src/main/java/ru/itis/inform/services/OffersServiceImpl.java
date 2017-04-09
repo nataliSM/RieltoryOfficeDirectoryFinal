@@ -66,9 +66,14 @@ public class OffersServiceImpl implements OffersService {
     }
 
     @Override
-    public void save(Offer offer) {
-        offersRepository.save(offer);
+    public Offer save(Offer offer) {
+        return offersRepository.save(offer);
     }
+
+    public void update(Offer offer) {
+        offersRepository.update(offer.getId(), offer.getCost());
+    }
+
 
     @Override
     public List<Offer> getAll() {
