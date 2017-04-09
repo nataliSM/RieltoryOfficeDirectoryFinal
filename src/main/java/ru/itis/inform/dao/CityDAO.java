@@ -1,8 +1,6 @@
 package ru.itis.inform.dao;
 
-import ru.itis.inform.models.rieltoryModel.City;
-
-import java.util.List;
+import ru.itis.inform.models.City;
 
 /**
  * Created by Natalia on 05.11.16.

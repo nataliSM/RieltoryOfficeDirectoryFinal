@@ -8,7 +8,7 @@ import org.springframework.jdbc.support.GeneratedKeyHolder;
 import org.springframework.jdbc.support.KeyHolder;
 import org.springframework.stereotype.Component;
 import ru.itis.inform.dao.TraderDAO;
-import ru.itis.inform.models.rieltoryModel.Trader;
+import ru.itis.inform.models.Trader;
 
 import javax.sql.DataSource;
 import java.sql.ResultSet;

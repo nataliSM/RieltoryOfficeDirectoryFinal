@@ -1,9 +1,8 @@
 package ru.itis.inform.dao.repository;
-import org.hibernate.annotations.NamedNativeQueries;
 import org.springframework.data.jpa.repository.Query;
 import org.springframework.data.repository.CrudRepository;
 import org.springframework.data.repository.query.Param;
-import ru.itis.inform.models.rieltoryModel.City;
+import ru.itis.inform.models.City;
 
 /**
  * Created by Natalia on 05.03.17.

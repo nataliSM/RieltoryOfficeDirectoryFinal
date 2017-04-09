@@ -5,18 +5,13 @@ import org.springframework.jdbc.core.JdbcTemplate;
 import org.springframework.jdbc.core.RowMapper;
 import org.springframework.stereotype.Component;
 import ru.itis.inform.dao.StreetDAO;
-import ru.itis.inform.models.rieltoryModel.City;
-import ru.itis.inform.models.rieltoryModel.Street;
+import ru.itis.inform.models.City;
+import ru.itis.inform.models.Street;
 
 import javax.sql.DataSource;
-import java.sql.Connection;
-import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
-import java.util.ArrayList;
 import java.util.List;
-import java.util.logging.Level;
-import java.util.logging.Logger;
 
 @Component("jdbc.street.dao")
 public class StreetDAOImpl implements StreetDAO {

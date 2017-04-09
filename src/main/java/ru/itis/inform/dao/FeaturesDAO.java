@@ -1,6 +1,6 @@
 package ru.itis.inform.dao;
 
-import ru.itis.inform.models.rieltoryModel.Feature;
+import ru.itis.inform.models.Feature;
 
 /**
  * Created by Natalia on 05.11.16.

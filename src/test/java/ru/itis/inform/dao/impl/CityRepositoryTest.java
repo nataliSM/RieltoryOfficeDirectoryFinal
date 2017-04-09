@@ -3,14 +3,12 @@ package ru.itis.inform.dao.impl;
 import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.data.repository.query.Param;
 import org.springframework.test.context.ContextConfiguration;
 import org.springframework.test.context.junit4.SpringJUnit4ClassRunner;
 import ru.itis.inform.dao.impl.config.TestDaoConfig;
 import ru.itis.inform.dao.repository.CityRepository;
-import ru.itis.inform.models.rieltoryModel.City;
+import ru.itis.inform.models.City;
 
-import java.util.ArrayList;
 import java.util.List;
 
 /**

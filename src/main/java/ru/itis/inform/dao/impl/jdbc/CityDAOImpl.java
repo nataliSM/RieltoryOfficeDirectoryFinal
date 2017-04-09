@@ -1,19 +1,17 @@
 package ru.itis.inform.dao.impl.jdbc;
 
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.beans.propertyeditors.StringArrayPropertyEditor;
 import org.springframework.jdbc.core.JdbcTemplate;
 import org.springframework.jdbc.core.RowMapper;
 import org.springframework.jdbc.support.GeneratedKeyHolder;
 import org.springframework.jdbc.support.KeyHolder;
 import org.springframework.stereotype.Component;
 import ru.itis.inform.dao.CityDAO;
-import ru.itis.inform.models.rieltoryModel.City;
+import ru.itis.inform.models.City;
 
 
 import javax.sql.DataSource;
 import java.sql.*;
-import java.util.ArrayList;
 import java.util.List;
 
 /**

@@ -1,6 +1,6 @@
 package ru.itis.inform.dao;
 
-import ru.itis.inform.models.rieltoryModel.Trader;
+import ru.itis.inform.models.Trader;
 
 /**
  * Created by Natalia on 06.11.16.

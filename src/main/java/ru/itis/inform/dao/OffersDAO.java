@@ -1,7 +1,7 @@
 package ru.itis.inform.dao;
 
 
-import ru.itis.inform.models.rieltoryModel.Offer;
+import ru.itis.inform.models.Offer;
 
 import java.util.List;
 

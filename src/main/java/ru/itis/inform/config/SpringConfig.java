@@ -1,6 +1,7 @@
 package ru.itis.inform.config;
 
 import org.hibernate.SessionFactory;
+import org.modelmapper.ModelMapper;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.ComponentScan;
@@ -18,7 +19,6 @@ import org.springframework.orm.hibernate5.LocalSessionFactoryBuilder;
 import org.springframework.web.servlet.ViewResolver;
 import org.springframework.web.servlet.mvc.Controller;
 import org.springframework.web.servlet.view.InternalResourceViewResolver;
-import ru.itis.inform.controllers.UpdateController;
 
 
 import javax.sql.DataSource;
@@ -81,12 +81,7 @@ public class SpringConfig {
     }
 
     @Bean
-    public ViewResolver viewResolver() {
-        return new InternalResourceViewResolver("/views/", ".jsp");
-    }
-
-    @Bean(name = "/show")
-    public Controller getUpdateController() {
-        return new UpdateController();
+    public ModelMapper modelMapper() {
+        return new ModelMapper();
     }
 }

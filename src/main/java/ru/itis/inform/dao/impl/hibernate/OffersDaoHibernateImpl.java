@@ -8,7 +8,7 @@ import org.hibernate.query.Query;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
 import ru.itis.inform.dao.OffersDAO;
-import ru.itis.inform.models.rieltoryModel.Offer;
+import ru.itis.inform.models.Offer;
 
 import java.util.List;
 import java.util.logging.Level;

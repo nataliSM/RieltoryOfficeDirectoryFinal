@@ -3,7 +3,7 @@
         "http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
 
 <hibernate-mapping>
-    <class name="ru.itis.inform.models.rieltoryModel.City" table="city" catalog="public" lazy="false">
+    <class name="ru.itis.inform.models.City" table="city" catalog="public" lazy="false">
         <id name="id" type="java.lang.Integer">
             <column name="city_id" />
             <generator class="identity" />

@@ -1,8 +1,6 @@
 package ru.itis.inform.dao;
 
-import ru.itis.inform.models.rieltoryModel.Street;
-
-import java.util.List;
+import ru.itis.inform.models.Street;
 
 /**
  * Created by Natalia on 05.11.16.

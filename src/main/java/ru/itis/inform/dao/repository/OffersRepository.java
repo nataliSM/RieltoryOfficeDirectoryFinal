@@ -3,7 +3,7 @@ package ru.itis.inform.dao.repository;
 import org.springframework.data.jpa.repository.Query;
 import org.springframework.data.repository.CrudRepository;
 import org.springframework.data.repository.query.Param;
-import ru.itis.inform.models.rieltoryModel.Offer;
+import ru.itis.inform.models.Offer;
 
 import java.util.List;
 

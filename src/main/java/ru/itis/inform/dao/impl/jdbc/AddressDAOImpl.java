@@ -5,17 +5,14 @@ import org.springframework.jdbc.core.JdbcTemplate;
 import org.springframework.jdbc.support.GeneratedKeyHolder;
 import org.springframework.jdbc.support.KeyHolder;
 import org.springframework.stereotype.Component;
-import org.springframework.stereotype.Repository;
 import ru.itis.inform.dao.AddressDAO;
-import ru.itis.inform.models.rieltoryModel.Address;
+import ru.itis.inform.models.Address;
 
 import org.springframework.jdbc.core.RowMapper;
-import ru.itis.inform.models.rieltoryModel.City;
-import ru.itis.inform.models.rieltoryModel.Street;
+import ru.itis.inform.models.City;
+import ru.itis.inform.models.Street;
 
 import javax.sql.DataSource;
-import java.sql.Connection;
-import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.util.List;

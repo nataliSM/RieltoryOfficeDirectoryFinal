@@ -1,16 +1,12 @@
 package ru.itis.inform.dao.impl.jdbc;
 
-import org.hibernate.HibernateException;
-import org.hibernate.Session;
-import org.hibernate.SessionFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.jdbc.core.JdbcTemplate;
 import org.springframework.jdbc.core.RowMapper;
 import org.springframework.jdbc.support.GeneratedKeyHolder;
 import org.springframework.jdbc.support.KeyHolder;
-import org.springframework.stereotype.Component;
 import ru.itis.inform.dao.OffersDAO;
-import ru.itis.inform.models.rieltoryModel.*;
+import ru.itis.inform.models.*;
 
 import javax.sql.DataSource;
 import java.sql.ResultSet;

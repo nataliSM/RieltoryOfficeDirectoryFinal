@@ -7,7 +7,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.test.context.ContextConfiguration;
 import ru.itis.inform.dao.impl.config.TestDaoConfig;
 import org.springframework.test.context.junit4.SpringJUnit4ClassRunner;
-import ru.itis.inform.models.rieltoryModel.City;
+import ru.itis.inform.models.City;
 import java.util.logging.*;
 
 import java.util.logging.Level;

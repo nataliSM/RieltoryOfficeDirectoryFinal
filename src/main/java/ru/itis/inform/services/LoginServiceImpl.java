@@ -2,7 +2,7 @@ package ru.itis.inform.services;
 
 import org.apache.commons.codec.digest.DigestUtils;
 import org.springframework.stereotype.Component;
-import ru.itis.inform.factories.DAOFactory;
+
 import ru.itis.inform.dao.UserDAO;
 import ru.itis.inform.models.User;
 
@@ -29,7 +29,7 @@ public class LoginServiceImpl implements LoginService
 
     @Override
     public boolean verifyUser(String username, String password) {
-        UserDAO userDAO = DAOFactory.getInstance().getUserDAO();
+        UserDAO userDAO = null;
         User user = userDAO.findUser(username);
 
         if (user != null) {
@@ -81,7 +81,7 @@ public class LoginServiceImpl implements LoginService
     }
 
     private void saveToken(String currentToken){
-        UserDAO userDao = DAOFactory.getInstance().getUserDAO();
+        UserDAO userDao = null;
         userDao.saveTokenForUser(currentUser.getId() ,currentToken);
 
     }
