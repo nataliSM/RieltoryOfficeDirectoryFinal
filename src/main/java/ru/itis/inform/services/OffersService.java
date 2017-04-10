@@ -13,9 +13,10 @@ public interface OffersService {
     public List<Offer> generateOfferces(int numberOfRooms, String condition, String repair, String cityName, Integer startCost,Integer endCost);
     public List<City> getAllCities ();
     public List<Street> getAllStreets ();
-    public void save (Offer offer);
+    public Offer save (Offer offer);
     public  List<Offer> getAll ();
     public void delete(Integer id);
     public void update(Integer id, Integer cost);
+    void update (Offer offer);
     public Offer findOffer(Integer id);
 }
